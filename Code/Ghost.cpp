@@ -16,8 +16,8 @@ Ghost::Ghost(GhostType type) {
 
     case GhostType::BLUE:
        
-        xPosition = 15; 
-        yPosition = 15; 
+        xPosition = 6; 
+        yPosition = 6; 
         direction = Direction::UP; 
         
         break;

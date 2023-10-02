@@ -1,7 +1,7 @@
 #include "Board.h"
 #include "Pacman.h"
 #include "Ghost.h"
-#include "Fruit.h"
+#include "Fruits.h"
 
 Board::Board() {
     
