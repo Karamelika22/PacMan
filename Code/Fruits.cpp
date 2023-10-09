@@ -1,3 +1,4 @@
+/*/
 #include "Fruits.h"
 
 Fruit::Fruit(FruitType type, int x, int y)

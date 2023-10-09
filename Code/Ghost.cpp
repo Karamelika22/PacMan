@@ -1,3 +1,4 @@
+/*/
 #include "Ghost.h"
 
 Ghost::Ghost(GhostType type) {
