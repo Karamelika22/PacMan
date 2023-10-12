@@ -7,14 +7,14 @@ OUT = file
 
 all: file
 
-file: main.o ghost.o pacman.o board.o
-	$(CC) main.o ghost.o pacman.o board.o -o $(OUT) $(LDFLAGS)
+file: main.o enemy.o pacman.o board.o
+	$(CC) main.o enemy.o pacman.o board.o -o $(OUT) $(LDFLAGS)
 
 main: main.cpp
 	$(CC) -c main.cpp $(CXXFLAGS)
 
-ghost: ghost.cpp
-	$(CC) -c ghost.cpp $(CXXFLAGS)
+enemy: enemy.cpp
+	$(CC) -c enemy.cpp $(CXXFLAGS)
 
 pacman: pacman.cpp
 	$(CC) -c pacman.cpp $(CXXFLAGS)
