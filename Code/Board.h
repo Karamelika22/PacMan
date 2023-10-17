@@ -5,7 +5,7 @@ extern const int screenWidth;
 extern char** map;
 extern char** stage;
 extern int life;
-
+//hthth
 void layout();
 void display();
 void gotoxy(int x, int y);
