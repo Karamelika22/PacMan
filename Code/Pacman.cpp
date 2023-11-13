@@ -2,10 +2,10 @@
 #include "Board.h"
 
 void Pacman::draw() {
-    if (dir == 'U') map[y][x] = 1;
-    else if (dir == 'D') map[y][x] = 2;
-    else if (dir == 'L') map[y][x] = 3;
-    else if (dir == 'R' || dir == 'S') map[y][x] = 4;
+    if (dir == 'U') map[y][x] = 'V';
+    else if (dir == 'D') map[y][x] = '^';
+    else if (dir == 'L') map[y][x] = '>';
+    else if (dir == 'R' || dir == 'S') map[y][x] = '<';
 }
 
 void Pacman::move() {
@@ -22,12 +22,12 @@ void Pacman::move() {
 }
 
 bool Pacman::collision(int fx, int fy) {
-    if (map[fy][fx] == 9) return true;
+    if (map[fy][fx] == '#') return true;
     return false;
 }
 
 void Pacman::dead() {
-    if (map[y][x] == 5) {
+    if (map[y][x] == 'E') {
         dir = 'S';
         x = 10;
         y = 15;
@@ -36,7 +36,7 @@ void Pacman::dead() {
 }
 
 void Pacman::eat() {
-    if (map[y][x] == 8) {
+    if (map[y][x] == '.') {
         stage[y][x] = ' ';
     }
 }

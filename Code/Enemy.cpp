@@ -42,7 +42,7 @@ std::ostream& operator<<(std::ostream& os, const Enemy& enemy) {
 }
 
 void Enemy::drwa() {
-    map[y][x] = 5;
+    map[y][x] = 'E';
 }
 
 void Enemy::move() {
@@ -58,6 +58,6 @@ void Enemy::move() {
 }
 
 bool Enemy::collision(int fx, int fy) {
-    if (map[fy][fx] == 9) return true;
+    if (map[fy][fx] == '#') return true;
     return false;
 }

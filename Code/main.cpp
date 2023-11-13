@@ -5,6 +5,7 @@
 #include <windows.h>
 #include <conio.h>
 #include <time.h>
+#include <algorithm>
 
 Pacman pacman;
 Enemy enemy[7];
@@ -17,34 +18,13 @@ void setup() {
     pacman.dir = 'S';
     pacman.delay = 2;
 
-
-    enemy[0].x = 9;
-    enemy[0].y = 9;
-    enemy[0].delay = 3;
-
-    enemy[1].x = 10;
-    enemy[1].y = 9;
-    enemy[1].delay = 5;
-
-    enemy[2].x = 11;
-    enemy[2].y = 9;
-    enemy[2].delay = 5;
-
-    enemy[3].x = 2;
-    enemy[3].y = 1;
-    enemy[3].delay = 5;
-
-    enemy[4].x = 18;
-    enemy[4].y = 1;
-    enemy[4].delay = 5;
-
-    enemy[5].x = 2;
-    enemy[5].y = 19;
-    enemy[5].delay = 5;
-
-    enemy[6].x = 18;
-    enemy[6].y = 19;
-    enemy[6].delay = 5;
+    enemy[0] = Enemy(9, 9, 0, 3, 0);
+    enemy[1] = Enemy(10, 9, 0, 5, 0);
+    enemy[2] = Enemy(11, 9, 0, 5, 0);
+    enemy[3] = Enemy(2, 1, 0, 5, 0);
+    enemy[4] = Enemy(18, 1, 0, 5, 0);
+    enemy[5] = Enemy(2, 19, 0, 5, 0);
+    enemy[6] = Enemy(18, 19, 0, 5, 0);
 }
 void gotoxy(int x, int y) {
     COORD c;
@@ -81,7 +61,7 @@ void input() {
 
 void movements() {
     pacman.move();
-    for (int i = 0; i < 7; i++) enemy[i].move();
+    std::for_each(std::begin(enemy), std::end(enemy), [](Enemy& e) { e.move(); });
 }
 
 int main() {
