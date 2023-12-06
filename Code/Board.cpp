@@ -83,7 +83,7 @@ void display() {
     gotoxy(2, 1); std::cout << "LIFE:  " << life;
     layout();
     pacman.draw();
-    for (int i = 0; i < 7; i++) enemy[i].drwa();
+    for (int i = 0; i < 7; i++) enemy[i].draw();
     for (int i = 0; i < screenHeight; i++) {
         for (int j = 0; j < screenWidth; j++) {
             gotoxy(j + 2, i + 3);

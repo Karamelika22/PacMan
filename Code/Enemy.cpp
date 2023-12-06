@@ -41,19 +41,36 @@ std::ostream& operator<<(std::ostream& os, const Enemy& enemy) {
     return os;
 }
 
-void Enemy::drwa() {
+void Enemy::draw() {
+
+
     map[y][x] = 'E';
 }
 
 void Enemy::move() {
     if (count_delay == delay) {
-        if (dir == 0 && !collision(x, y - 1)) y--;
-        if (dir == 1 && !collision(x, y + 1)) y++;
-        if (dir == 2 && !collision(x - 1, y)) x--;
-        if (dir == 2 && !collision(x + 1, y)) x++;
+        // 
+        map[y][x] = ' ';
+
+        // 
+        int new_x = x;
+        int new_y = y;
+
+        if (dir == 0 && !collision(x, y - 1)) new_y--;
+        else if (dir == 1 && !collision(x, y + 1)) new_y++;
+        else if (dir == 2 && !collision(x - 1, y)) new_x--;
+        else if (dir == 3 && !collision(x + 1, y)) new_x++;
+
+        // 
+        if (!collision(new_x, new_y)) {
+            x = new_x;
+            y = new_y;
+        }
+
         count_delay = 0;
         dir = rand() % 4;
     }
+
     count_delay++;
 }
 

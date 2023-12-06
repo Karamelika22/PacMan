@@ -6,6 +6,15 @@ void Pacman::draw() {
     else if (dir == 'D') map[y][x] = '^';
     else if (dir == 'L') map[y][x] = '>';
     else if (dir == 'R' || dir == 'S') map[y][x] = '<';
+
+    if (dir != 'S' && dir != 'R') {
+        if (dir == 'U') map[y + 1][x] = ' ';
+        else if (dir == 'D') map[y - 1][x] = ' ';
+        else if (dir == 'L') map[y][x + 1] = ' ';
+    }
+    else if (dir == 'R') {
+        map[y][x - 1] = ' ';
+    }
 }
 
 void Pacman::move() {
