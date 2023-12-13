@@ -1,4 +1,4 @@
-#include "Enemy.h"
+﻿#include "Enemy.h"
 #include "Board.h"
 #include <cstdlib>
 #include <iostream>
@@ -67,12 +67,16 @@ void Enemy::move() {
             y = new_y;
         }
 
+        // Восстанавливаем значение на карте после перемещения
+        map[y][x] = 'E';
+
         count_delay = 0;
         dir = rand() % 4;
     }
 
     count_delay++;
 }
+
 
 bool Enemy::collision(int fx, int fy) {
     if (map[fy][fx] == '#') return true;

@@ -72,9 +72,11 @@ int main() {
     setup();
     layout();
     while (life > 0) {
-        display();
         input();
         movements();
+        display();
+        Sleep(16);
+        
     }
 
     std::cout << "Game Over. Press any key to exit..." << std::endl;
